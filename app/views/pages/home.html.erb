@@ -1,7 +1,57 @@
+<div class="search-bar">
+  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+    <div class="search-form-control form-group">
+      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+      <button name="button" type="submit" class="btn btn-flat">
+        <i class="fas fa-search"></i> Search
+      </button>
+    </div>
+  <% end %>
+</div>
+
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1597662942557-4087865bf476?ixlib=rb-1.2.1&ixid=MnwxM[…]B1cHB5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60);">
   <div class="container">
-    <h1>Cuddle <strong>a puppy</strong> near you <strong>today</strong>!</h1>
+          <h1>Cuddle <strong>a puppy</strong> near you <strong>today</strong>!</h1>
     <p>Bringing love to families one pat at a time</p>
     <a class="btn btn-flat" href="#">Sign Up</a>
   </div>
+</div>
+
+
+
+<div class="container home-container">
+  <div class="card-puppy">
+    <img src="https://images.unsplash.com/photo-1618359057154-e21ae64350b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
+    <div class="card-puppy-infos">
+      <div>
+        <h2>Title here</h2>
+        <p>Short description here!</p>
+      </div>
+      <p class="card-puppy-pricing"><strong>$10 per day</strong></p>
+      <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
+    </div>
+  </div>
+
+   <div class="card-puppy">
+    <img src="https://images.unsplash.com/photo-1618359057154-e21ae64350b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
+    <div class="card-puppy-infos">
+      <div>
+        <h2>Title here</h2>
+        <p>Short description here!</p>
+      </div>
+      <p class="card-puppy-pricing"><strong>$10 per day</strong></p>
+      <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
+    </div>
+  </div>
+
+  <div class="card-puppy">
+    <img src="https://images.unsplash.com/photo-1618359057154-e21ae64350b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
+    <div class="card-puppy-infos">
+      <div>
+        <h2>Title here</h2>
+        <p>Short description here!</p>
+      </div>
+      <p class="card-puppy-pricing"><strong>$10 per day</strong></p>
+      <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
+    </div>
 </div>
