@@ -7,5 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times do
-  User.create(username: Faker::Internet.user[:username], email: Faker::Internet.user[:email], encrypted_password: 'secret')
+  user = User.new
+  user.email = Faker::Internet.user[:email]
+  user.password = 'secret'
+  user.username = Faker::Internet.user[:username]
+  user.save!
+end
+
+20.times do
+  Puppy.create!(
+    name: Faker::Creature::Dog.name,
+    address: Faker::Address.street_address,
+    breed: Faker::Creature::Dog.breed,
+    description: Faker::GreekPhilosophers.quote,
+    user_id: rand(1..10)
+  )
 end
