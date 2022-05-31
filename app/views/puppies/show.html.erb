@@ -1,0 +1,33 @@
+<br>
+
+<h2>Puppy details</h2>
+
+<p>
+  <strong>Puppy's name:</strong>
+  <%= @puppy.name %>
+</p>
+<br>
+
+<p>
+  <strong>Puppy breed:</strong>
+  <%= @puppy.breed %>
+</p>
+<br>
+
+<p>
+  <strong>Where this puppy lives:</strong>
+  <%= @puppy.address %>
+</p>
+<br>
+
+<p>
+  <strong>More information about this puppy:</strong>
+  <%= @puppy.description %>
+</p>
+<br>
+
+<%= link_to 'Edit', edit_puppy_path(@puppy) %>
+<br>
+<%= link_to 'Delete :(', puppy_path(@puppy), method: :delete %>
+<br>
+<%= link_to 'Back to all puppies', puppies_path %>
