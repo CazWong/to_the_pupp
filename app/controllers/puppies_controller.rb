@@ -1,5 +1,5 @@
 class PuppiesController < ApplicationController
-  before_action :set_puppy, only: %w[show edit]
+  before_action :set_puppy, only: %w[show edit update destroy]
 
   def index
     @puppies = Puppy.all
@@ -31,7 +31,6 @@ class PuppiesController < ApplicationController
   end
 
   def update
-    authorize @puppy
 
     if @puppy.update(puppy_params)
       redirect_to @puppy
@@ -49,6 +48,7 @@ class PuppiesController < ApplicationController
 
   def set_puppy
     @puppy = Puppy.find(params[:id])
+    authorize @puppy
   end
 
   def puppy_params

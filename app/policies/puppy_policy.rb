@@ -19,6 +19,10 @@ class PuppyPolicy < ApplicationPolicy
     true
   end
 
+  def edit?
+
+  end
+
   def update?
     authorised_user?
   end
