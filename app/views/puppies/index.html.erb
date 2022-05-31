@@ -1,0 +1,26 @@
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Breed</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @puppies.each do |puppy| %>
+      <tr>
+        <td><%= puppy.name %></td>
+        <td><%= puppy.breed %></td>
+        <td><%= link_to 'Show', puppy %></td>
+        <td><%= link_to 'Edit', edit_puppy_path(puppy) %></td>
+        <td><%= link_to 'Delete :(', puppy_path(puppy), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add a new puppy', new_puppy_path %>

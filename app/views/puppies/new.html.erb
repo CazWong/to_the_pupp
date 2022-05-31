@@ -1,0 +1,14 @@
+<br>
+
+<h2>Add a new puppy</h2>
+
+<%= simple_form_for @puppy do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :breed %>
+  <%= f.input :description %>
+  <%= f.submit %>
+<% end %>
+
+<br>
+<%= link_to 'Back', puppies_path %>
