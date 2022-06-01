@@ -1,0 +1,13 @@
+<div class="banner"  style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1597662942557-4087865bf476?ixlib=rb-1.2.1&ixid=MnwxM[…]B1cHB5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60);">
+  <div class="container">
+    <h1>Edit your booking!</h2>
+      <%= simple_form_for @booking do |f| %>
+      <p><%= f.input :start_date, as: :date %></p>
+      <p><%= f.input :end_date, as: :date %></p>
+      <%= f.submit %>
+      <% end %>
+    <br>
+    <%# <%= link_to 'Back', puppy_path(@puppy), class:"btn btn-flat"%> %>
+    <%= link_to 'My Dashboard', dashboard_path, class:"btn btn-flat"%>
+  </div>
+</div>
