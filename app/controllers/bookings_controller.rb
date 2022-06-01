@@ -2,9 +2,12 @@ class BookingsController < ApplicationController
   before_action :get_puppy, only: [:new, :create, :update, :destroy]
   def new
     @booking = Booking.new
+    @booking.puppy_id = @puppy.id
+    @booking.user_id = current_user.id
   end
 
   def create
+    raise
     @booking = Booking.new(bookings_params)
     @booking.puppy = @puppy
     if @booking.save
@@ -19,14 +22,16 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.update(bookings_params)
-    redirect_to @puppy
-    # TODO
+    if @booking.update(bookings_params)
+      redirect_to puppy_path(@puppy)
+    else
+      render :edit
+    end
   end
 
   def destroy
     @booking.destroy
-    redirect_to @puppy
+    redirect_to puppies_path
   end
 
   private
