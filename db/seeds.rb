@@ -23,3 +23,4 @@ end
     user_id: rand(1..10)
   )
 end
+
