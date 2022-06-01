@@ -1,31 +1,30 @@
-<br>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Breed</th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container">
+  <div class="cards-puppy">
     <% @puppies.each do |puppy| %>
-      <tr>
-        <td><%= puppy.name %></td>
-        <td><%= puppy.breed %></td>
-          <% if policy(puppy).show? %>
-        <td><%= link_to 'Show', puppy %></td>
+      <div class="card-puppy">
+        <%= cl_image_tag puppy.photos.first.key, class: "puppy-avatar-bordered" %>
+        <div class="card-puppy-infos">
+          <div>
+            <h2><%= puppy.name %></h2>
+            <p><%= puppy.breed %></p>
+          </div>
+          <p class="card-puppy-pricing"><strong>$15 per day</strong></p>
+          <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
+        </div>
+        <% if policy(puppy).show? %>
+          <%= link_to 'Pat me!', puppy_path(puppy), class: "btn btn-flat" %>
         <% end %>
-          <% if policy(puppy).edit? %>
-        <td><%= link_to 'Edit', edit_puppy_path(puppy) %></td>
+        <% if policy(puppy).edit? %>
+          <%= link_to 'Edit', edit_puppy_path(puppy) %>
         <% end %>
         <% if policy(puppy).destroy? %>
-        <td><%= link_to 'Delete :(', puppy_path(puppy), method: :delete %></td>
+          <%= link_to 'Delete :(', puppy_path(puppy), method: :delete %>
         <% end %>
-      </tr>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+
 
 <br>
 
