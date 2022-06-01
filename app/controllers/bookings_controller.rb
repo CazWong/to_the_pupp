@@ -13,7 +13,6 @@ class BookingsController < ApplicationController
     if @booking.save
       # TODO: redirect to dashboard
       # @booking.status = 'peending'
-      raise
       redirect_to puppy_path(@puppy), notice: "Booking pending, waiting for response from owner"
     else
       render :new
