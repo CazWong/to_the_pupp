@@ -19,14 +19,16 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.update(bookings_params)
-    redirect_to @puppy
-    # TODO
+    if @booking.update(bookings_params)
+      redirect_to puppy_path(@puppy)
+    else
+      render :edit
+    end
   end
 
   def destroy
     @booking.destroy
-    redirect_to @puppy
+    redirect_to puppies_path
   end
 
   private
