@@ -1,0 +1,10 @@
+<h2>Add a new booking!</h2>
+<%= simple_form_for [@puppy, @booking] do |f| %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
+  <%= f.input :comments %>
+  <%= f.submit %>
+<% end %>
+
+<br>
+<%= link_to 'Back', puppy_path(@puppy) %>

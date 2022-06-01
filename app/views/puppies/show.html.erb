@@ -25,7 +25,8 @@
   <%= @puppy.description %>
 </p>
 <br>
-
+<%= link_to 'Book this adorable puppy now!', new_puppy_booking_path(@puppy.id) %>
+<br>
 <%= link_to 'Edit', edit_puppy_path(@puppy) %>
 <br>
 <%= link_to 'Delete :(', puppy_path(@puppy), method: :delete %>

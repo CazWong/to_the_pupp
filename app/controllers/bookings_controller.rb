@@ -2,9 +2,12 @@ class BookingsController < ApplicationController
   before_action :get_puppy, only: [:new, :create, :update, :destroy]
   def new
     @booking = Booking.new
+    @booking.puppy_id = @puppy.id
+    @booking.user_id = current_user.id
   end
 
   def create
+    raise
     @booking = Booking.new(bookings_params)
     @booking.puppy = @puppy
     if @booking.save
