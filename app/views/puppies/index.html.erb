@@ -13,9 +13,15 @@
       <tr>
         <td><%= puppy.name %></td>
         <td><%= puppy.breed %></td>
+          <% if policy(puppy).show? %>
         <td><%= link_to 'Show', puppy %></td>
+        <% end %>
+          <% if policy(puppy).edit? %>
         <td><%= link_to 'Edit', edit_puppy_path(puppy) %></td>
+        <% end %>
+        <% if policy(puppy).destroy? %>
         <td><%= link_to 'Delete :(', puppy_path(puppy), method: :delete %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
