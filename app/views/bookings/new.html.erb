@@ -1,5 +1,7 @@
+<div class="container">
 <h2>Add a new booking!</h2>
 <%= simple_form_for [@puppy, @booking] do |f| %>
+  <%= "Cost per night AUD#{@puppy.cost_per_night}" %>
   <%= f.input :start_date, as: :date %>
   <%= f.input :end_date, as: :date %>
   <%= f.input :comments %>
@@ -8,3 +10,5 @@
 
 <br>
 <%= link_to 'Back', puppy_path(@puppy) %>
+<%= link_to 'My Dashboard', dashboard_path %>
+</div>
