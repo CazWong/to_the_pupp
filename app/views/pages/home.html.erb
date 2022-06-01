@@ -2,9 +2,10 @@
   <%= simple_form_for :search, url: root_path, method: :get do |f| %>
     <div class="search-form-control form-group">
       <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-      <button name="button" type="submit" class="btn btn-flat">
+      <%= link_to 'Search', puppies_path, class: 'btn btn-flat' %>
+      <%# <button name="button" type="submit" class="btn btn-flat">
         <i class="fas fa-search"></i> Search
-      </button>
+      </button> %>
     </div>
   <% end %>
 </div>
@@ -24,8 +25,8 @@
     <img src="https://images.unsplash.com/photo-1618359057154-e21ae64350b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
     <div class="card-puppy-infos">
       <div>
-        <h2>Title here</h2>
-        <p>Short description here!</p>
+        <h2><%= Puppy.first.name %></h2>
+        <p><%= Puppy.first.description %></p>
       </div>
       <p class="card-puppy-pricing"><strong>$10 per day</strong></p>
       <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
@@ -33,25 +34,25 @@
   </div>
 
    <div class="card-puppy">
-    <img src="https://images.unsplash.com/photo-1618359057154-e21ae64350b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
+    <img src="https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
     <div class="card-puppy-infos">
       <div>
-        <h2>Title here</h2>
-        <p>Short description here!</p>
+        <h2><%= Puppy.second.name %></h2>
+        <p><%= Puppy.second.description %></p>
       </div>
-      <p class="card-puppy-pricing"><strong>$10 per day</strong></p>
+      <p class="card-puppy-pricing"><strong>$12 per day</strong></p>
       <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
     </div>
   </div>
 
   <div class="card-puppy">
-    <img src="https://images.unsplash.com/photo-1618359057154-e21ae64350b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
+    <img src="https://images.unsplash.com/photo-1593134257782-e89567b7718a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" />
     <div class="card-puppy-infos">
       <div>
-        <h2>Title here</h2>
-        <p>Short description here!</p>
+        <h2><%= Puppy.third.name %></h2>
+        <p><%= Puppy.third.description %></p>
       </div>
-      <p class="card-puppy-pricing"><strong>$10 per day</strong></p>
+      <p class="card-puppy-pricing"><strong>$20 per day</strong></p>
       <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
     </div>
 </div>
