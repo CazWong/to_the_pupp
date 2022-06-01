@@ -10,10 +10,6 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
-  def edit?
-    true
-  end
-
   def update?
     authorised_user?
   end
