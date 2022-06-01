@@ -53,7 +53,7 @@ class PuppiesController < ApplicationController
   end
 
   def puppy_params
-    params.require(:puppy).permit(:name, :address, :breed, :description)
+    params.require(:puppy).permit(:name, :address, :breed, :description, photos: [])
   end
 
 end

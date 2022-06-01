@@ -6,16 +6,18 @@
 
 }
 
-
-
-
+.cards-puppy {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
 
 .card-puppy
  {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 30%;
+
 
 }
 
