@@ -1,34 +1,34 @@
 <br>
 
-<h2>Puppy details</h2>
 
-<p>
-  <strong>Puppy's name:</strong>
-  <%= @puppy.name %>
-</p>
-<br>
 
-<p>
-  <strong>Puppy breed:</strong>
-  <%= @puppy.breed %>
-</p>
-<br>
+<div class="container">
+  <div class="card-product-top">
+    <div class="card-product-top-image" style="background-image: url(https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
+    </div>
+    <div class="card-product-info">
+      <div>
+        <i class="fas fa-heart position-icon"></i>
+        <i class="fas fa-heart position-icon"></i>
+        <i class="fas fa-heart position-icon"></i>
+        <i class="fas fa-heart position-icon"></i>
+        <i class="fas fa-heart position-icon"></i>
+      </div>
+      <p><strong><%= @puppy.name %></strong></p><br>
+      <span><strong>Breed: </strong><%= @puppy.breed %></span><br>
+      <span><strong>Address: </strong><%= @puppy.address %></span><br>
+      <span><strong>Description: </strong><%= @puppy.description %></span><br><br><br>
+      <%= link_to 'Book this adorable puppy now!', new_puppy_booking_path(@puppy.id), class:"btn btn-flat" %><br><br>
 
-<p>
-  <strong>Where this puppy lives:</strong>
-  <%= @puppy.address %>
-</p>
-<br>
+      <% if policy(@puppy).edit? %>
+        <%= link_to 'Edit puppy details', edit_puppy_path(@puppy) %><br>
+      <% end %>
 
-<p>
-  <strong>More information about this puppy:</strong>
-  <%= @puppy.description %>
-</p>
-<br>
-<%= link_to 'Book this adorable puppy now!', new_puppy_booking_path(@puppy.id) %>
-<br>
-<%= link_to 'Edit', edit_puppy_path(@puppy) %>
-<br>
-<%= link_to 'Delete :(', puppy_path(@puppy), method: :delete %>
-<br>
-<%= link_to 'Back to all puppies', puppies_path %>
+      <% if policy(@puppy).destroy? %>
+        <%= link_to 'Delete this puppy', puppy_path(@puppy), method: :delete %><br>
+      <% end %>
+
+      <%= link_to 'Back to all puppies', puppies_path %>
+    </div>
+  </div>
+</div>

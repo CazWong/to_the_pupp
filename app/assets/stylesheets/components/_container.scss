@@ -1,0 +1,42 @@
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: 700px;
+  }
+}
+
+
+@media (max-width: 700px) {
+ .container {
+    width: 500px;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .container {
+    width: 400px;
+  }
+}
+
+.card-product-top{
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-product-top-image {
+  height: 350px;
+  width: 350px;
+  flex-shrink: 0;
+  background-size: cover;
+  position: relative;
+}
+
+.card-product-info {
+  flex-grow: 1;
+  padding: 0 16px;
+}

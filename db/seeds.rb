@@ -29,7 +29,8 @@ puppy = Puppy.new(
   address: '15 Sutton Grove, Richmond, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -45,6 +46,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -60,6 +62,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -75,6 +78,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -90,6 +94,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -105,6 +110,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -120,6 +126,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -135,6 +142,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -150,6 +158,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -165,6 +174,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -180,6 +190,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -195,6 +206,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -210,6 +222,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -225,6 +238,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -240,6 +254,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -255,6 +270,7 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
 
 3.times do |i|
@@ -270,4 +286,5 @@ puppy = Puppy.new(
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
   user: users.sample
+  cost_per_night: rand(10..50)
 )
