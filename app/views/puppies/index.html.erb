@@ -1,4 +1,16 @@
 <div class="container">
+  <%= form_tag puppies_path, method: :get, class: "my-3" do %>
+    <div class="d-flex">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a puppy"
+      %>
+      <%= submit_tag "Search", class: "btn btn-flat ms-3" %>
+    </div>
+  <% end %>
+
+
   <div class="cards-puppy">
     <% @puppies.each do |puppy| %>
       <div class="card-puppy">
@@ -14,13 +26,7 @@
           <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
         </div>
         <% if policy(puppy).show? %>
-          <%= link_to 'Pat me!', puppy_path(puppy), class: "btn btn-flat" %>
-        <% end %>
-        <% if policy(puppy).edit? %>
-          <%= link_to 'Edit', edit_puppy_path(puppy) %>
-        <% end %>
-        <% if policy(puppy).destroy? %>
-          <%= link_to 'Delete :(', puppy_path(puppy), method: :delete %>
+          <%= link_to 'Pat me!', puppy_path(puppy), class: "btn btn-flat ms-3 mb-3" %>
         <% end %>
       </div>
     <% end %>
