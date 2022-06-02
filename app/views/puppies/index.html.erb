@@ -2,7 +2,9 @@
   <div class="cards-puppy">
     <% @puppies.each do |puppy| %>
       <div class="card-puppy">
-        <%= cl_image_tag puppy.photos.first.key, class: "puppy-avatar-bordered" %>
+        <% puppy.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, class: "puppy-avatar-bordered" %>
+        <% end %>
         <div class="card-puppy-infos">
           <div>
             <h2><%= puppy.name %></h2>
