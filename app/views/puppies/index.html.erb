@@ -27,18 +27,9 @@
             <p class="card-puppy-pricing"><strong>$15 per day</strong></p>
             <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
           </div>
-          <% if policy(puppy).show? %>
-            <%= link_to 'Pat me!', puppy_path(puppy), class: "btn btn-flat ms-3 mb-3" %>
-          <% end %>
-          <% if policy(puppy).edit? %>
-            <%= link_to 'Edit', edit_puppy_path(puppy) %>
-          <% end %>
-          <% if policy(puppy).destroy? %>
-            <%= link_to 'Delete :(', puppy_path(puppy), method: :delete %>
-          <% end %>
-        </div>
+
         <% if policy(puppy).show? %>
-          <%= link_to 'Book', puppy_path(puppy), class: "btn3 btn-flat" %>
+          <%= link_to 'Book', puppy_path(puppy), class: "btn3 btn-flat ms-3 mb-3" %>
         <% end %>
         <% if policy(puppy).edit? %>
           <%= link_to edit_puppy_path(puppy) do %>
@@ -50,9 +41,8 @@
             <i class="far fa-trash-alt"></i>
           <% end %>
         <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
-</div>
 <br>
-
