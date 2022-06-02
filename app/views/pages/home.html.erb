@@ -1,11 +1,11 @@
 <div class="search-bar">
+
   <%= form_tag puppies_path, method: :get, class: "my-3" do %>
     <div class="d-flex">
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-        placeholder: "Find a puppy"
-      %>
+        placeholder: "Find a puppy" %>
       <%= submit_tag "Search", class: "btn btn-flat ms-3" %>
     </div>
   <% end %>

@@ -19,17 +19,30 @@
       <span><strong>Breed: </strong><%= @puppy.breed %></span><br>
       <span><strong>Address: </strong><%= @puppy.address %></span><br>
       <span><strong>Description: </strong><%= @puppy.description %></span><br><br><br>
-      <%= link_to 'Book this adorable puppy now!', new_puppy_booking_path(@puppy.id), class:"btn btn-flat" %><br><br>
+      <%= link_to 'Book', new_puppy_booking_path(@puppy.id), class:"btn3 btn-flat" %><br><br>
 
       <% if policy(@puppy).edit? %>
-        <%= link_to 'Edit puppy details', edit_puppy_path(@puppy) %><br>
+        <%= link_to edit_puppy_path(@puppy) do %><br>
+        <i class="fas fa-pen-square"></i>
       <% end %>
+      <% end %>
+
+
 
       <% if policy(@puppy).destroy? %>
-        <%= link_to 'Delete this puppy', puppy_path(@puppy), method: :delete %><br>
+        <%= link_to puppy_path(@puppy), method: :delete do %><br>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
       <% end %>
 
-      <%= link_to 'Back to all puppies', puppies_path %>
+
     </div>
+
+
   </div>
+    <%= link_to puppies_path do %>
+      <i class="fab fa-arrow-alt-left"></i>
+    <% end %>
+
+
 </div>
