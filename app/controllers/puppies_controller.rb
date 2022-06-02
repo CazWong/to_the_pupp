@@ -5,6 +5,7 @@ class PuppiesController < ApplicationController
   def index
     @puppies = Puppy.all
     @puppies = policy_scope(Puppy)
+    # raise
   end
 
   def show
@@ -32,7 +33,6 @@ class PuppiesController < ApplicationController
   end
 
   def update
-
     if @puppy.update(puppy_params)
       redirect_to @puppy
     else
@@ -55,5 +55,4 @@ class PuppiesController < ApplicationController
   def puppy_params
     params.require(:puppy).permit(:name, :address, :breed, :description, photos: [])
   end
-
 end
