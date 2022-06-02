@@ -33,10 +33,12 @@ puppy = Puppy.new(
   cost_per_night: rand(10..50)
 )
 
+puts "attaching images"
 3.times do |i|
   file = URI.open("https://source.unsplash.com/random/?dog&#{i}")
   puppy.photos.attach(io: file, filename: "#{puppy.name} #{i}")
 end
+puts "finished attaching images"
 
 puppy.save!
 
@@ -49,10 +51,12 @@ puppy = Puppy.new(
   cost_per_night: rand(10..50)
 )
 
+puts "attaching images"
 3.times do |i|
   file = URI.open("https://source.unsplash.com/random/?dog&#{i}")
   puppy.photos.attach(io: file, filename: "#{puppy.name} #{i}")
 end
+puts "finished attaching images"
 
 puppy.save!
 
@@ -65,10 +69,12 @@ puppy = Puppy.new(
   cost_per_night: rand(10..50)
 )
 
+puts "attaching images"
 3.times do |i|
   file = URI.open("https://source.unsplash.com/random/?dog&#{i}")
   puppy.photos.attach(io: file, filename: "#{puppy.name} #{i}")
 end
+puts "finished attaching images"
 
 puppy.save!
 
@@ -81,10 +87,12 @@ puppy = Puppy.new(
   cost_per_night: rand(10..50)
 )
 
+puts "attaching images"
 3.times do |i|
   file = URI.open("https://source.unsplash.com/random/?dog&#{i}")
   puppy.photos.attach(io: file, filename: "#{puppy.name} #{i}")
 end
+puts "Finsihed attaching images"
 
 puppy.save!
 
