@@ -1,6 +1,6 @@
 class PuppiesController < ApplicationController
   before_action :set_puppy, only: %w[show edit update destroy]
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @puppies = Puppy.all
