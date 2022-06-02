@@ -1,0 +1,27 @@
+<div class="card-puppy-home">
+  <div id="puppy-<%= puppy.id %>" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+    <div class="carousel-inner">
+      <% puppy.photos.each_with_index do |photo, index| %>
+        <div class="carousel-item <%= 'active' if index == 0 %>">
+          <%= cl_image_tag photo.key, class:'d-block w-100', style:'width: 200px; height: 300px; object-fit: cover;' %>
+        </div>
+      <% end %>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#puppy-<%= puppy.id %>" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#puppy-<%= puppy.id %>" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="card-puppy-infos p-4">
+    <div>
+      <h2 class="fs-4 fw-bold text-primary"><%= puppy.name %></h2>
+      <p class="opacity-75 text-black-50"><%= puppy.description %></p>
+    </div>
+    <p class="card-puppy-pricing text-black-50 fs-6"><strong>$12 per day</strong></p>
+    <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
+  </div>
+</div>

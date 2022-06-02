@@ -21,38 +21,11 @@
 
 
 <div class="container home-container">
-  <div class="card-puppy" style="width: 30%">
-    <img src="https://images.unsplash.com/photo-1618359057154-e21ae64350b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
-    <div class="card-puppy-infos">
-      <div>
-        <h2><%= Puppy.first.name %></h2>
-        <p><%= Puppy.first.description %></p>
+  <div class="row">
+    <% Puppy.first(3).each do |puppy| %>
+      <div class="col-4">
+        <%= render 'puppies/puppy', puppy: puppy %>
       </div>
-      <p class="card-puppy-pricing"><strong>$10 per day</strong></p>
-      <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
-    </div>
+    <% end %>
   </div>
-
-   <div class="card-puppy" style="width: 30%">
-    <img src="https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
-    <div class="card-puppy-infos">
-      <div>
-        <h2><%= Puppy.second.name %></h2>
-        <p><%= Puppy.second.description %></p>
-      </div>
-      <p class="card-puppy-pricing"><strong>$12 per day</strong></p>
-      <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
-    </div>
-  </div>
-
-  <div class="card-puppy" style="width: 30%">
-    <img src="https://images.unsplash.com/photo-1593134257782-e89567b7718a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" />
-    <div class="card-puppy-infos">
-      <div>
-        <h2><%= Puppy.third.name %></h2>
-        <p><%= Puppy.third.description %></p>
-      </div>
-      <p class="card-puppy-pricing"><strong>$20 per day</strong></p>
-      <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
-    </div>
 </div>
