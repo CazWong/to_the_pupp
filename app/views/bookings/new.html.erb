@@ -1,17 +1,15 @@
 <div class="banner"  style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1597662942557-4087865bf476?ixlib=rb-1.2.1&ixid=MnwxM[…]B1cHB5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60);">
   <div class="container">
-    <h1>Add a new booking!</h2>
-      <%= simple_form_for [@puppy, @booking] do |f| %>
-      <h5><%= "Cost per night AUD#{@puppy.cost_per_night}" %></h5>
-      <p><%= f.input :start_date, as: :date %></p>
-      <p><%= f.input :end_date, as: :date %></p>
-      <p><%= f.input :comments %></p>
-      <%= f.submit 'Book Now' %>
-      <% end %>
-    <br>
-    <%= link_to 'Back', puppy_path(@puppy), class:"btn btn-flat"%>
-    <%= link_to 'My Dashboard', dashboard_path, class:"btn btn-flat"%>
-    <%= link_to 'Book Now', dashboard_path, class:"btn btn-flat"%>
 
+    <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+      <h1>Add a new booking!</h2>
+        <%= simple_form_for [@puppy, @booking] do |f| %>
+        <h5><%= "Cost per night AUD#{@puppy.cost_per_night}" %></h5>
+        <%= f.input :start_date, as: :string, input_html: { id: "range" } %>
+        <%= f.button :submit, "Book this pup!", class:"btn btn-flat" %>
+        <% end %>
+      <br>
+      <%= link_to 'Back', puppy_path(@puppy), class:"btn btn-flat"%>
+    </div>
   </div>
 </div>

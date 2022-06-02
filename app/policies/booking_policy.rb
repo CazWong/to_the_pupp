@@ -21,6 +21,6 @@ class BookingPolicy < ApplicationPolicy
   private
 
   def authorised_user?
-    record.user == user || user.username == 'admin'
+    record.user == user || record.user.username == 'admin'
   end
 end
