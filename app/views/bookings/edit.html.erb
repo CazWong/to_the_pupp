@@ -2,9 +2,8 @@
   <div class="container">
     <h1>Edit your booking!</h2>
       <%= simple_form_for @booking do |f| %>
-      <p><%= f.input :start_date, as: :date %></p>
-      <p><%= f.input :end_date, as: :date %></p>
-      <%= f.submit %>
+        <%= f.input :start_date, as: :string, input_html: { id: "range" } %>
+      <%= f.button :submit, "Update Booking!", class:"btn btn-flat" %>
       <% end %>
     <br>
     <%= link_to 'My Dashboard', dashboard_path, class:"btn btn-flat"%>
