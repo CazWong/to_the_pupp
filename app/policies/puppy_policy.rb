@@ -30,6 +30,6 @@ class PuppyPolicy < ApplicationPolicy
   private
 
   def authorised_user?
-    record.user == user
+    record.user == user || user.username == 'admin'
   end
 end

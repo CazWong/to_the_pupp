@@ -33,10 +33,12 @@ puppy = Puppy.new(
   cost_per_night: rand(10..50)
 )
 
+puts "attaching images"
 3.times do |i|
   file = URI.open("https://source.unsplash.com/random/?dog&#{i}")
   puppy.photos.attach(io: file, filename: "#{puppy.name} #{i}")
 end
+puts "finished attaching images"
 
 puppy.save!
 
@@ -45,14 +47,16 @@ puppy = Puppy.new(
   address: '2 Portland St, Richmond, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
+puts "attaching images"
 3.times do |i|
   file = URI.open("https://source.unsplash.com/random/?dog&#{i}")
   puppy.photos.attach(io: file, filename: "#{puppy.name} #{i}")
 end
+puts "finished attaching images"
 
 puppy.save!
 
@@ -61,14 +65,16 @@ puppy = Puppy.new(
   address: '20 Clifton St, Richmond, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
+puts "attaching images"
 3.times do |i|
   file = URI.open("https://source.unsplash.com/random/?dog&#{i}")
   puppy.photos.attach(io: file, filename: "#{puppy.name} #{i}")
 end
+puts "finished attaching images"
 
 puppy.save!
 
@@ -77,14 +83,16 @@ puppy = Puppy.new(
   address: '35 Malcolm St, South Yarra, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
+puts "attaching images"
 3.times do |i|
   file = URI.open("https://source.unsplash.com/random/?dog&#{i}")
   puppy.photos.attach(io: file, filename: "#{puppy.name} #{i}")
 end
+puts "Finsihed attaching images"
 
 puppy.save!
 
@@ -93,7 +101,7 @@ puppy = Puppy.new(
   address: '35 Nicholson St, South Yarra, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
@@ -109,7 +117,7 @@ puppy = Puppy.new(
   address: '399 Lonsdale St, Melbourne, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
@@ -125,7 +133,7 @@ puppy = Puppy.new(
   address: '71 Hardware Ln, Melbourne, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
@@ -141,7 +149,7 @@ puppy = Puppy.new(
   address: '44 Dorrit St, Carlton, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
@@ -157,7 +165,7 @@ puppy = Puppy.new(
   address: '9 King William St, Fitzroy, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
@@ -173,7 +181,7 @@ puppy = Puppy.new(
   address: '80 Nicholson St, Fitzroy, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
@@ -189,7 +197,7 @@ puppy = Puppy.new(
   address: '12 Garfield St, Fitzroy, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
@@ -205,7 +213,7 @@ puppy = Puppy.new(
   address: '150 Bellair St, Kensington, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
@@ -221,7 +229,7 @@ puppy = Puppy.new(
   address: '10 Percy St, Kensington, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
@@ -237,7 +245,7 @@ puppy = Puppy.new(
   address: '49 Westbourne Rd, Kensington, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
@@ -253,7 +261,7 @@ puppy = Puppy.new(
   address: '29 Sydney St, Ascot Vale, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
@@ -269,7 +277,7 @@ puppy = Puppy.new(
   address: '22 Mascoma St, Ascot Vale, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
 
@@ -285,6 +293,6 @@ puppy = Puppy.new(
   address: '49 Middle St, Ascot Vale, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample
+  user: users.sample,
   cost_per_night: rand(10..50)
 )
