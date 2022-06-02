@@ -3,9 +3,21 @@ class PuppiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @puppies = Puppy.all
+    # @puppies = Puppy.all
     @puppies = policy_scope(Puppy)
-    # raise
+
+    if params[:query].present?
+      # sql_query = " \
+      #   puppies.name ILIKE :query \
+      #   OR puppies.address ILIKE :query \
+      #   OR puppies.breed ILIKE :query \
+      #   OR puppies.description ILIKE :query \
+      # "
+      # @puppies = Puppy.where(sql_query, query: "%#{params[:query]}%")
+      @puppies = Puppy.search_by_puppy_fields(params[:query])
+    else
+      @puppies = Puppy.all
+    end
   end
 
   def show
