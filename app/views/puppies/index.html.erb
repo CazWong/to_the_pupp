@@ -1,3 +1,4 @@
+<%# // ORIGINAL // %>
 <div class="container">
   <%= form_tag puppies_path, method: :get, class: "my-3" do %>
     <div class="d-flex">
@@ -36,14 +37,22 @@
             <%= link_to 'Delete :(', puppy_path(puppy), method: :delete %>
           <% end %>
         </div>
-      <% end %>
+        <% if policy(puppy).show? %>
+          <%= link_to 'Book', puppy_path(puppy), class: "btn3 btn-flat" %>
+        <% end %>
+        <% if policy(puppy).edit? %>
+          <%= link_to edit_puppy_path(puppy) do %>
+            <i class="fas fa-pen-square"></i>
+           <% end %>
+        <% end %>
+        <% if policy(puppy).destroy? %>
+          <%= link_to puppy_path(puppy), method: :delete do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        <% end %>
       </div>
     <% end %>
   </div>
-
-
+</div>
 <br>
-
-<%# <% if policy(@puppies).new? %>
 <%= link_to 'Add a new puppy', new_puppy_path %>
-<%# <% end %>
