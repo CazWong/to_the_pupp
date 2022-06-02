@@ -13,27 +13,37 @@
 
   <div class="cards-puppy">
     <% @puppies.each do |puppy| %>
-      <div class="card-puppy">
-        <% puppy.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, class: "puppy-avatar-bordered" %>
-        <% end %>
-        <div class="card-puppy-infos">
-          <div>
-            <h2><%= puppy.name %></h2>
-            <p><%= puppy.breed %></p>
+      <% if puppy.user != current_user || current_user.username == 'admin' %>
+        <div class="card-puppy">
+          <% puppy.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, class: "puppy-avatar-bordered" %>
+          <% end %>
+          <div class="card-puppy-infos">
+            <div>
+              <h2><%= puppy.name %></h2>
+              <p><%= puppy.breed %></p>
+            </div>
+            <p class="card-puppy-pricing"><strong>$15 per day</strong></p>
+            <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
           </div>
-          <p class="card-puppy-pricing"><strong>$15 per day</strong></p>
-          <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
+          <% if policy(puppy).show? %>
+            <%= link_to 'Pat me!', puppy_path(puppy), class: "btn btn-flat ms-3 mb-3" %>
+          <% end %>
+          <% if policy(puppy).edit? %>
+            <%= link_to 'Edit', edit_puppy_path(puppy) %>
+          <% end %>
+          <% if policy(puppy).destroy? %>
+            <%= link_to 'Delete :(', puppy_path(puppy), method: :delete %>
+          <% end %>
         </div>
-        <% if policy(puppy).show? %>
-          <%= link_to 'Pat me!', puppy_path(puppy), class: "btn btn-flat ms-3 mb-3" %>
-        <% end %>
+      <% end %>
       </div>
     <% end %>
   </div>
-</div>
 
 
 <br>
 
+<%# <% if policy(@puppies).new? %>
 <%= link_to 'Add a new puppy', new_puppy_path %>
+<%# <% end %>

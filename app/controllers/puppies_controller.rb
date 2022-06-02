@@ -14,9 +14,7 @@ class PuppiesController < ApplicationController
       #   OR puppies.description ILIKE :query \
       # "
       # @puppies = Puppy.where(sql_query, query: "%#{params[:query]}%")
-
       @puppies = Puppy.search_by_puppy_fields(params[:query])
-
     else
       @puppies = Puppy.all
     end
@@ -47,7 +45,6 @@ class PuppiesController < ApplicationController
   end
 
   def update
-
     if @puppy.update(puppy_params)
       redirect_to @puppy
     else
@@ -70,5 +67,4 @@ class PuppiesController < ApplicationController
   def puppy_params
     params.require(:puppy).permit(:name, :address, :breed, :description, photos: [])
   end
-
 end
