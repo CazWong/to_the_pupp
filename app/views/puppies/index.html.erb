@@ -14,13 +14,17 @@
           <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
         </div>
         <% if policy(puppy).show? %>
-          <%= link_to 'Pat me!', puppy_path(puppy), class: "btn btn-flat" %>
+          <%= link_to 'Book', puppy_path(puppy), class: "btn3 btn-flat" %>
         <% end %>
         <% if policy(puppy).edit? %>
-          <%= link_to 'Edit', edit_puppy_path(puppy) %>
+          <%= link_to edit_puppy_path(puppy) do %>
+            <i class="fas fa-pen-square"></i>
+           <% end %>
         <% end %>
         <% if policy(puppy).destroy? %>
-          <%= link_to 'Delete :(', puppy_path(puppy), method: :delete %>
+          <%= link_to puppy_path(puppy), method: :delete do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
     <% end %>
@@ -30,4 +34,4 @@
 
 <br>
 
-<%= link_to 'Add a new puppy', new_puppy_path %>
+
