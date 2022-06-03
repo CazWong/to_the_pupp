@@ -7,16 +7,16 @@ class PuppiesController < ApplicationController
     @puppies = policy_scope(Puppy)
 
     if params[:query].present?
-      # sql_query = " \
-      #   puppies.name ILIKE :query \
-      #   OR puppies.address ILIKE :query \
-      #   OR puppies.breed ILIKE :query \
-      #   OR puppies.description ILIKE :query \
-      # "
-      # @puppies = Puppy.where(sql_query, query: "%#{params[:query]}%")
-      @puppies = Puppy.search_by_puppy_fields(params[:query])
+      @puppies = Puppy.geocoded.search_by_puppy_fields(params[:query])
     else
-      @puppies = Puppy.all
+      @puppies = Puppy.geocoded
+    end
+    @markers = @puppies.map do |puppy| {
+      lat: puppy.latitude,
+      lng: puppy.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { puppy: puppy }),
+      image_url: helpers.asset_url("paw.png")
+    }
     end
   end
 
