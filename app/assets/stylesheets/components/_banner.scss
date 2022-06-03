@@ -70,3 +70,11 @@ padding: 20px;
     background: $primary;
   }
 }
+
+.btn-primary {
+  color: white;
+
+  &:hover {
+    color: white;
+  }
+}
