@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Booking.destroy_all && Puppy.destroy_all && User.destroy_all
 
-User.create!(
+admin_user = User.create!(
   email: 'admin@admin.com',
   password: 'secret',
   username: 'admin'
@@ -296,3 +296,29 @@ puppy = Puppy.new(
   user: users.sample,
   cost_per_night: rand(10..50)
 )
+
+puppies = Puppy.where(user: admin_user)
+users_not_admin = User.where.not(email: "admin@admin.com")
+
+6.times do
+  Booking.create!(
+    user: users_not_admin.sample,
+    puppy: puppies.sample,
+    total_cost_per_night: rand(100..500),
+    start_date: Date.today + rand(0..12).days,
+    end_date: Date.today + 12.days + rand(0..12).days,
+  )
+end
+
+not_my_puppies = Puppy.where.not(user: admin_user)
+
+20.times do
+  Booking.create!(
+    user: admin_user,
+    puppy: not_my_puppies.sample,
+    total_cost_per_night: rand(100..500),
+    start_date: Date.today + rand(0..12).days,
+    end_date: Date.today + 12.days + rand(0..12).days,
+    status: ["pending", "approved", "decline"].sample
+  )
+end
