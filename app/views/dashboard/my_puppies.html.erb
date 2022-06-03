@@ -1,0 +1,55 @@
+<div class="container my-5">
+  <h1 class="text-center">Overview</h1>
+  <ul class="nav nav-pills my-4 d-flex justify-content-center" id="pills-tab" role="tablist">
+    <li class="nav-item me-1" role="presentation">
+      <button class="btn btn-secondary active btn-sm fs-5 text" id="pills-my-puppies-tab" data-bs-toggle="pill" data-bs-target="#pills-my-puppies" type="button" role="tab" aria-controls="pills-my-puppies" aria-selected="false">My Puppies</button>
+    </li>
+    <li class="nav-item me-1" role="presentation">
+      <button class="btn btn-secondary btn-sm fs-5 text" id="pills-waiting-list-tab" data-bs-toggle="pill" data-bs-target="#pills-waiting-list" type="button" role="tab" aria-controls="pills-waiting-list" aria-selected="false">Requests</button>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-my-puppies" role="tabpanel" aria-labelledby="pills-my-puppies-tab">
+      <div class="d-flex justify-content-evenly">
+        <% @owners_puppies.each do |puppy| %>
+          <div class="card-puppy">
+            <%= cl_image_tag puppy.photos.first.key, class: "puppy-avatar-bordered" %>
+            <div class="card-puppy-infos">
+              <div>
+                <h2><%= puppy.name %></h2>
+                <p><%= puppy.breed %></p>
+                <p class="card-puppy-pricing"><strong>$<%= puppy.cost_per_night %> / night</strong></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "List a puppy", new_puppy_path %>
+    </div>
+    <div class="tab-pane fade" id="pills-waiting-list" role="tabpanel" aria-labelledby="pills-waiting-list-tab">
+      <div class="d-flex justify-content-around">
+        <% if @my_puppy_bookings.blank? %>
+          <h3>No requests</h3>
+        <% else %>
+          <% @my_puppy_bookings.each do |booking| %>
+            <div class="card-puppy">
+              <%= cl_image_tag booking.puppy.photos.first.key, class: "puppy-avatar-bordered" %>
+              <div class="card-puppy-infos">
+                <div>
+                  <h2><%= booking.puppy.name %></h2>
+                  <p><%= booking.puppy.breed %></p>
+                  <p class="text-center"><%= booking.start_date.strftime("%b %d, %Y") %> - <%= booking.end_date.strftime("%b %d, %Y") %></p>
+                  <p class="card-puppy-pricing"><strong>$<%= booking.total_cost_per_night %> total</strong></p>
+                  <p><%= booking.user.email %></p>
+                </div>
+              </div>
+              <%= link_to 'Accept', accept_booking_path(booking), method: :patch, class: "btn3 btn-flat ms-3 mb-3" %>
+              <%= link_to 'Decline', decline_booking_path(booking), method: :patch, class: "btn3 btn-flat ms-3 mb-3" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

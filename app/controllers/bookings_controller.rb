@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.total_cost_per_night = total_nights * @puppy.cost_per_night
     @booking.user_id = current_user.id
     if @booking.save
-      redirect_to dashboard_path, notice: "Booking pending, waiting for response from owner"
+      redirect_to my_bookings_path, notice: "Booking pending, waiting for response from owner"
     else
       render :new
     end
@@ -26,6 +26,7 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    @booking.update(status: :pending)
     authorize @booking
   end
 
@@ -40,6 +41,20 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     redirect_to puppies_path
+  end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.approved!
+    @booking.save
+    redirect_to my_puppies_path
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.decline!
+    @booking.save
+    redirect_to my_puppies_path
   end
 
   private
