@@ -7,42 +7,20 @@
         class: "form-control",
         placeholder: "Find a puppy"
       %>
-      <%= submit_tag "Search", class: "btn btn-flat ms-3" %>
+      <%= submit_tag "Search", class: "btn btn-primary ms-3" %>
     </div>
   <% end %>
 
+  <div style="width: 100%; height: 600px;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <br>
 
   <div class="cards-puppy">
     <% @puppies.each do |puppy| %>
-      <% if puppy.user != current_user || current_user.username == 'admin' %>
-        <div class="card-puppy">
-          <% puppy.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, class: "puppy-avatar-bordered" %>
-          <% end %>
-          <div class="card-puppy-infos">
-            <div>
-              <h2><%= puppy.name %></h2>
-              <p><%= puppy.breed %></p>
-            </div>
-            <p class="card-puppy-pricing"><strong>$<%= puppy.cost_per_night %> per night</strong></p>
-            <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
-          </div>
-
-        <% if policy(puppy).show? %>
-          <%= link_to 'Book', puppy_path(puppy), class: "btn3 btn-flat ms-3 mb-3" %>
-        <% end %>
-        <% if policy(puppy).edit? %>
-          <%= link_to edit_puppy_path(puppy) do %>
-            <i class="fas fa-pen-square"></i>
-           <% end %>
-        <% end %>
-        <% if policy(puppy).destroy? %>
-          <%= link_to puppy_path(puppy), method: :delete do %>
-            <i class="far fa-trash-alt"></i>
-          <% end %>
-        <% end %>
-        </div>
-      <% end %>
+      <%= render 'puppy', puppy: puppy %>
     <% end %>
   </div>
 <br>

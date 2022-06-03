@@ -1,48 +1,56 @@
-<br>
-
 
 
 <div class="container">
-  <div class="card-product-top">
-    <% @puppy.photos.each do |photo| %>
-      <div class="card-product-top-image" style="background-image: url(<%= cl_image_path photo.key %>)"></div>
-    <% end %>
-    <div class="card-product-info">
-      <div>
-        <i class="fas fa-heart position-icon"></i>
-        <i class="fas fa-heart position-icon"></i>
-        <i class="fas fa-heart position-icon"></i>
-        <i class="fas fa-heart position-icon"></i>
-        <i class="fas fa-heart position-icon"></i>
+  <div class="row">
+    <div class="col-6 p-4">
+      <div id="puppy-<%= @puppy.id %>" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+        <div class="carousel-inner">
+          <% @puppy.photos.each_with_index do |photo, index| %>
+            <div class="carousel-item <%= 'active' if index == 0 %>">
+              <%= cl_image_tag photo.key, class:'d-block w-100', style:'width: 200px; height: 300px; object-fit: cover;' %>
+            </div>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#puppy-<%= @puppy.id %>" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#puppy-<%= @puppy.id %>" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+
       </div>
-      <p><strong><%= @puppy.name %></strong></p><br>
-      <span><strong>Breed: </strong><%= @puppy.breed %></span><br>
-      <span><strong>Address: </strong><%= @puppy.address %></span><br>
-      <span><strong>Description: </strong><%= @puppy.description %></span><br><br><br>
-      <%= link_to 'Book', new_puppy_booking_path(@puppy.id), class:"btn3 btn-flat" %><br><br>
-
-      <% if policy(@puppy).edit? %>
-        <%= link_to edit_puppy_path(@puppy) do %><br>
-        <i class="fas fa-pen-square"></i>
-      <% end %>
-      <% end %>
-
-
-
-      <% if policy(@puppy).destroy? %>
-        <%= link_to puppy_path(@puppy), method: :delete do %><br>
-        <i class="far fa-trash-alt"></i>
-      <% end %>
-      <% end %>
-
-
     </div>
+    <div class="col-6 p-4 position-relative">
+      <div class="puppy-show-info">
+        <p class="breed"><%= @puppy.breed&.upcase %></p>
+        <h1 class="name mb-3"><%= @puppy.name&.capitalize %></h1>
+        <div class="d-flex align-items-center mb-3">
+          <i class="fas fa-heart position-icon text-primary ms-1"></i>
+          <i class="fas fa-heart position-icon text-primary ms-1"></i>
+          <i class="fas fa-heart position-icon text-primary ms-1"></i>
+          <i class="fas fa-heart position-icon text-primary ms-1"></i>
+          <i class="fas fa-heart position-icon text-primary ms-1"></i>
+        </div>
+        <p class="description"><%= @puppy.description %></p>
+        <p class="address"><%= @puppy.address %></p>
+      </div>
+      <%= link_to 'Book', new_puppy_booking_path(@puppy.id), class:"btn btn-primary w-50 " %>
 
+      <div class="options d-flex align-items-center">
+        <% if policy(@puppy).edit? %>
+          <%= link_to edit_puppy_path(@puppy), class: 'round-btn' do %><br>
+            <i class="fas fa-pen-square list-inline-item "></i>
+          <% end %>
+        <% end %>
 
+        <% if policy(@puppy).destroy? %>
+          <%= link_to puppy_path(@puppy), method: :delete, class: 'round-btn' do %><br>
+            <i class="far fa-trash-alt list-inline-item"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
-    <%= link_to puppies_path do %>
-      <i class="fab fa-arrow-alt-left"></i>
-    <% end %>
-
-
 </div>

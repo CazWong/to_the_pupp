@@ -3,9 +3,13 @@
     <h1>Edit your booking!</h2>
       <%= simple_form_for @booking do |f| %>
         <%= f.input :start_date, as: :string, input_html: { id: "range" } %>
-      <%= f.button :submit, "Update Booking!", class:"btn btn-flat" %>
+      <%= f.button :submit, "Update Booking!", class:"btn btn-primary" %>
       <% end %>
     <br>
+<<<<<<< HEAD
     <%= link_to 'My Dashboard', my_bookings_path, class:"btn btn-flat"%>
+=======
+    <%= link_to 'My Dashboard', dashboard_path, class:"btn btn-primary"%>
+>>>>>>> master
   </div>
 </div>

@@ -1,0 +1,37 @@
+.puppy-show-info {
+  .breed {
+    color: gray;
+    font-family: $mono-font;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 0px;
+  }
+
+  .name {
+    font-weight: bold;
+  }
+
+  .description {
+    color: gray;
+  }
+}
+
+.options {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.round-btn {
+  padding: 10px;
+  border-radius: 20px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: $secondary;
+  }
+}

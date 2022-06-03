@@ -6,7 +6,7 @@
         params[:query],
         class: "form-control",
         placeholder: "Find a puppy" %>
-      <%= submit_tag "Search", class: "btn btn-flat ms-3" %>
+      <%= submit_tag "Search", class: "btn btn-primary ms-3" %>
     </div>
   <% end %>
 </div>
@@ -15,9 +15,12 @@
   <div class="container">
           <h1>Cuddle <strong>a puppy</strong> near you <strong>today</strong>!</h1>
     <p>Bringing love to families one pat at a time</p>
-    <a class="btn btn-flat" href="#">Sign Up</a>
-  </div>
+    <% unless user_signed_in? %>
+	  <a class="btn btn-primary" href="#">Sign Up</a>
+    <% end %>
+    </div>
 </div>
+
 
 
 

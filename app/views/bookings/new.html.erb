@@ -1,15 +1,15 @@
 <div class="banner"  style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1597662942557-4087865bf476?ixlib=rb-1.2.1&ixid=MnwxM[…]B1cHB5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60);">
   <div class="container">
 
-    <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <div class="form-wrapper" style="width: 400px; margin: 0 auto; color: white">
       <h1>Add a new booking!</h2>
         <%= simple_form_for [@puppy, @booking] do |f| %>
-        <h5><%= "Cost per night AUD#{@puppy.cost_per_night}" %></h5>
+        <h5 style="color: white"><%= "Cost per night AUD#{@puppy.cost_per_night}"%></h5>
         <%= f.input :start_date, as: :string, input_html: { id: "range" } %>
-        <%= f.button :submit, "Book this pup!", class:"btn btn-flat" %>
+        <%= f.button :submit, "Book this pup!", class:"btn btn-primary" %>
         <% end %>
       <br>
-      <%= link_to 'Back', puppy_path(@puppy), class:"btn btn-flat"%>
+      <%= link_to 'Back', puppy_path(@puppy), class:"btn btn-secondary"%>
     </div>
   </div>
 </div>
