@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   resources :puppies do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:edit, :update, :destroy]
-  get '/dashboard', to: 'dashboard#dashboard', as: :dashboard
+  resources :bookings, only: [:edit, :update, :destroy] do
+    member do
+      patch "accept"
+      patch "decline"
+    end
+  end
+  get '/my_bookings', to: 'dashboard#my_bookings', as: :my_bookings
+  get '/my_puppies', to: 'dashboard#my_puppies', as: :my_puppies
 end
