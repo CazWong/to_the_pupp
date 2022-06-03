@@ -16,12 +16,30 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <div class="card-puppy-infos p-4">
-    <div>
-      <h2 class="fs-4 fw-bold text-primary"><%= puppy.name %></h2>
-      <p class="opacity-75 text-black-50"><%= puppy.description %></p>
+  <div class="p-4">
+    <div class="card-puppy-infos">
+      <div>
+        <p class="breed"><%= puppy.breed %></p>
+        <h2><%= puppy.name %></h2>
+      </div>
+      <%# image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
     </div>
-    <p class="card-puppy-pricing text-black-50 fs-6"><strong>$12 per day</strong></p>
-    <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
+    <div class='d-flex align-items-center justify-content-between'>
+      <p class="card-puppy-pricing"><span class="price">$<%= puppy.cost_per_night %></span> per night</p>
+      <%= link_to 'Learn more', puppy_path(puppy), class: "btn btn-secondary" %>
+    </div>
+
+    <% if false %>
+      <% if policy(puppy).edit? %>
+        <%= link_to edit_puppy_path(puppy) do %>
+          <i class="fas fa-pen-square"></i>
+          <% end %>
+      <% end %>
+      <% if policy(puppy).destroy? %>
+        <%= link_to puppy_path(puppy), method: :delete do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>

@@ -1,0 +1,17 @@
+.puppy-show-info {
+  .breed {
+    color: gray;
+    font-family: $mono-font;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 0px;
+  }
+
+  .name {
+    font-weight: bold;
+  }
+
+  .description {
+    color: gray;
+  }
+}

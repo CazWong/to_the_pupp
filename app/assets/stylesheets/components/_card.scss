@@ -17,7 +17,7 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 .card-puppy
@@ -27,29 +27,45 @@
   object-fit: cover;
 }
 
-.card-puppy
- h2 {
+.card-puppy h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 
 }
 
-.card-puppy
- p {
+.card-puppy p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
 
 
-.card-puppy
- .card-puppy-infos {
-  padding: 16px;
+.card-puppy-infos {
+  padding-bottom: 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+
+  .breed {
+    color: gray;
+    font-family: $mono-font;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 0px;
+  }
+}
+
+.card-puppy-pricing {
+  font-family: $mono-font;
+  font-size: 0.8rem;
+  color: gray;
+
+  .price {
+    color: black;
+    font-size: 1.3rem;
+  }
 }
 
 .card-puppy-infos .card-puppy-user {
@@ -57,23 +73,6 @@
   right: 16px;
   top: -20px;
   width: 40px;
-
-}
-
-.btn3:hover {
-  opacity: 0.4;
-  color: rgb(98, 122, 158);
-}
-.btn3 {
-  font-size: medium;
-  font-weight: lighter;
-  font-family: inherit;
-  color: #c94c4c;
-  background-color: #F6C6BD;
-  padding: 15px 25px;
-  border-radius: 10px;
-
-
 
 }
 
