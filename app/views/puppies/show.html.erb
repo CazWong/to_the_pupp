@@ -22,7 +22,7 @@
 
       </div>
     </div>
-    <div class="col-6 p-4">
+    <div class="col-6 p-4 position-relative">
       <div class="puppy-show-info">
         <p class="breed"><%= @puppy.breed&.upcase %></p>
         <h1 class="name mb-3"><%= @puppy.name&.capitalize %></h1>
@@ -34,25 +34,22 @@
           <i class="fas fa-heart position-icon text-primary ms-1"></i>
         </div>
         <p class="description"><%= @puppy.description %></p>
-
+        <p class="address"><%= @puppy.address %></p>
       </div>
-      <div><p class="address"><%= @puppy.address %></p>
-      </div>
-      <br>
-
-      <div class="list-inline">
       <%= link_to 'Book', new_puppy_booking_path(@puppy.id), class:"btn btn-primary w-50 " %>
-            <% if policy(@puppy).edit? %>
-        <%= link_to edit_puppy_path(@puppy) do %><br>
-        <i class="fas fa-pen-square list-inline-item "></i>
-      <% end %>
-      <% end %>
 
-      <% if policy(@puppy).destroy? %>
-        <%= link_to puppy_path(@puppy), method: :delete do %><br>
-        <i class="far fa-trash-alt list-inline-item"></i>
-      <% end %>
-      <% end %>
+      <div class="options d-flex align-items-center">
+        <% if policy(@puppy).edit? %>
+          <%= link_to edit_puppy_path(@puppy), class: 'round-btn' do %><br>
+            <i class="fas fa-pen-square list-inline-item "></i>
+          <% end %>
+        <% end %>
+
+        <% if policy(@puppy).destroy? %>
+          <%= link_to puppy_path(@puppy), method: :delete, class: 'round-btn' do %><br>
+            <i class="far fa-trash-alt list-inline-item"></i>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
