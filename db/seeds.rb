@@ -29,7 +29,7 @@ puppy = Puppy.new(
   address: '15 Sutton Grove, Richmond, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample,
+  user: admin_user,
   cost_per_night: rand(10..50)
 )
 
@@ -47,7 +47,7 @@ puppy = Puppy.new(
   address: '2 Portland St, Richmond, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample,
+  user: admin_user,
   cost_per_night: rand(10..50)
 )
 
@@ -65,7 +65,7 @@ puppy = Puppy.new(
   address: '20 Clifton St, Richmond, VIC',
   breed: Faker::Creature::Dog.breed,
   description: Faker::GreekPhilosophers.quote,
-  user: users.sample,
+  user: admin_user,
   cost_per_night: rand(10..50)
 )
 
@@ -298,6 +298,7 @@ puppy = Puppy.new(
 )
 
 puppies = Puppy.where(user: admin_user)
+p puppies
 users_not_admin = User.where.not(email: "admin@admin.com")
 
 6.times do
