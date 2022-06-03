@@ -24,7 +24,7 @@
               <h2><%= puppy.name %></h2>
               <p><%= puppy.breed %></p>
             </div>
-            <p class="card-puppy-pricing"><strong>$15 per day</strong></p>
+            <p class="card-puppy-pricing"><strong>$<%= puppy.cost_per_night %> per night</strong></p>
             <%= image_tag "Photo.jpg", class: "card-puppy-user avatar-bordered" %>
           </div>
 
