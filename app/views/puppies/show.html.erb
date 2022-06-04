@@ -35,8 +35,8 @@
         </div>
         <p class="description"><%= @puppy.description %></p>
         <p class="address"><%= @puppy.address %></p>
+        <p class="card-puppy-pricing"><strong>$<%= @puppy.cost_per_night %> / night</strong></p>
       </div>
-      <br>
       <br>
       <%= link_to 'Book this puppy', new_puppy_booking_path(@puppy.id), class:"btn btn-primary w-50 " %>
 

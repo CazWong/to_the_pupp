@@ -53,8 +53,6 @@
                     <p class="text-center"><%= booking.start_date.strftime("%b %d, %Y") %> - <%= booking.end_date.strftime("%b %d, %Y") %></p>
                     <p class="card-puppy-pricing"><strong>Total booking value $<%= booking.total_cost_per_night %></strong></p>
                     <p>Requestor email: <%= booking.user.email %></p>
-                    <i class="fas fa-pen-square me-3"></i>
-                    <i class="far fa-trash-alt"></i>
                   </div>
                 </div>
                 <%= link_to 'Accept', accept_booking_path(booking), method: :patch, class: "btn btn-primary" %>
