@@ -1,2 +1,4 @@
 <h2><%= puppy.name %></h2>
 <p><%= puppy.address %></p>
+<p>$<%= puppy.cost_per_night %> / night</p>
+<%= link_to 'Learn more', puppy_path(puppy), class: "btn btn-secondary" %>

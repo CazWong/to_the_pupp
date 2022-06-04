@@ -11,50 +11,63 @@
 
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-my-pending-bookings" role="tabpanel" aria-labelledby="pills-my-pending-bookings-tab">
-      <div class="d-flex justify-content-evenly">
-        <% @pending_bookings.each do |booking| %>
-          <div class="card-puppy">
-            <%= cl_image_tag booking.puppy.photos.first.key, class: "puppy-avatar-bordered" %>
-            <div class="card-puppy-infos">
-              <h2><%= booking.puppy.name %></h2>
-              <p><%= booking.puppy.breed %></p>
-              <p class="card-puppy-pricing"><strong>$<%= booking.total_cost_per_night %> total</strong></p>
+        <div class="cards-puppy">
+          <% @pending_bookings.each do |booking| %>
+            <div class="card-puppy-home">
+              <div class="card-puppy">
+                <%= cl_image_tag booking.puppy.photos.first.key %>
+              </div>
+              <div class="p-4">
+                <div class="card-puppy-infos">
+                  <div>
+                    <p class="breed"><%= booking.puppy.breed %></p>
+                    <h2><%= booking.puppy.name %></h2>
+                    <p class="card-puppy-pricing"><strong>$<%= booking.total_cost_per_night %> total</strong></p>
+                    <p class="card-puppy-pricing"><%= booking.start_date.strftime("%b %d, %Y") %> - <%= booking.end_date.strftime("%b %d, %Y") %></p>
+                    <%= link_to edit_booking_path(booking) do %>
+                      <i class="fas fa-pen-square me-3"></i>
+                    <% end %>
+                    <%= link_to my_bookings_path(booking), method: :delete do %>
+                      <i class="far fa-trash-alt"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p class="text-center"><%= booking.start_date.strftime("%b %d, %Y") %> - <%= booking.end_date.strftime("%b %d, %Y") %></p>
-            <div class="d-flex justify-content-between">
-              <%= link_to edit_booking_path(booking) do %>
-                <i class="fas fa-pen-square"></i>
-              <% end %>
-              <%= link_to booking_path(booking), method: :delete do %>
-                <i class="far fa-trash-alt"></i>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+          <% end %>
+        </div>
     </div>
+
+
     <div class="tab-pane fade" id="pills-confirmed-bookings" role="tabpanel" aria-labelledby="pills-confirmed-bookings-tab">
-      <div class="d-flex justify-content-around mx-4">
+      <div class="cards-puppy">
         <% @approved_bookings.each do |booking| %>
-          <div class="card-puppy">
-            <%= cl_image_tag booking.puppy.photos.first.key, class: "puppy-avatar-bordered" %>
-            <div class="card-puppy-infos">
-              <h2><%= booking.puppy.name %></h2>
-              <p><%= booking.puppy.breed %></p>
-              <p class="card-puppy-pricing"><strong>$<%= booking.total_cost_per_night %> total</strong></p>
+            <div class="card-puppy-home">
+              <div class="card-puppy">
+                <%= cl_image_tag booking.puppy.photos.first.key %>
+              </div>
+              <div class="p-4">
+                <div class="card-puppy-infos">
+                  <div>
+                    <p class="breed"><%= booking.puppy.breed %></p>
+                    <h2><%= booking.puppy.name %></h2>
+                    <p class="card-puppy-pricing"><strong>$<%= booking.total_cost_per_night %> total</strong></p>
+                    <p class="card-puppy-pricing"><%= booking.start_date.strftime("%b %d, %Y") %> - <%= booking.end_date.strftime("%b %d, %Y") %></p>
+                    <%= link_to edit_booking_path(booking) do %>
+                      <i class="fas fa-pen-square me-3"></i>
+                    <% end %>
+                    <%= link_to my_bookings_path(booking), method: :delete do %>
+                      <i class="far fa-trash-alt"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p class="text-center"><%= booking.start_date.strftime("%b %d, %Y") %> - <%= booking.end_date.strftime("%b %d, %Y") %></p>
-            <div class="d-flex justify-content-between">
-              <%= link_to edit_booking_path(booking) do %>
-                <i class="fas fa-pen-square"></i>
-              <% end %>
-              <%= link_to booking_path(booking), method: :delete do %>
-                <i class="far fa-trash-alt"></i>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+          <% end %>
+
       </div>
     </div>
+
+
   </div>
 </div>

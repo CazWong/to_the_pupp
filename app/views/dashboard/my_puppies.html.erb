@@ -11,41 +11,55 @@
 
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-my-puppies" role="tabpanel" aria-labelledby="pills-my-puppies-tab">
-      <div class="d-flex justify-content-evenly">
+      <div class="cards-puppy">
         <% @owners_puppies.each do |puppy| %>
-          <div class="card-puppy">
-            <%= cl_image_tag puppy.photos.first.key, class: "puppy-avatar-bordered" %>
-            <div class="card-puppy-infos">
-              <div>
-                <h2><%= puppy.name %></h2>
-                <p><%= puppy.breed %></p>
-                <p class="card-puppy-pricing"><strong>$<%= puppy.cost_per_night %> / night</strong></p>
+            <div class="card-puppy-home">
+              <div class="card-puppy">
+                <%= cl_image_tag puppy.photos.first.key %>
+              </div>
+              <div class="p-4">
+                <div class="card-puppy-infos">
+                  <div>
+                    <p class="breed"><%= puppy.breed %></p>
+                    <h2><%= puppy.name %></h2>
+                    <p class="card-puppy-pricing"><strong>$<%= puppy.cost_per_night %> / night</strong></p>
+                    <i class="fas fa-pen-square me-3"></i>
+                    <i class="far fa-trash-alt"></i>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
       </div>
-      <%= link_to "List a puppy", new_puppy_path %>
+      <br><br>
+      <%= link_to "List a puppy", new_puppy_path, class:"btn btn-primary" %>
     </div>
+
     <div class="tab-pane fade" id="pills-waiting-list" role="tabpanel" aria-labelledby="pills-waiting-list-tab">
-      <div class="d-flex justify-content-around">
+      <div class="cards-puppy">
         <% if @my_puppy_bookings.blank? %>
           <h3>No requests</h3>
         <% else %>
           <% @my_puppy_bookings.each do |booking| %>
-            <div class="card-puppy">
-              <%= cl_image_tag booking.puppy.photos.first.key, class: "puppy-avatar-bordered" %>
-              <div class="card-puppy-infos">
-                <div>
-                  <h2><%= booking.puppy.name %></h2>
-                  <p><%= booking.puppy.breed %></p>
-                  <p class="text-center"><%= booking.start_date.strftime("%b %d, %Y") %> - <%= booking.end_date.strftime("%b %d, %Y") %></p>
-                  <p class="card-puppy-pricing"><strong>$<%= booking.total_cost_per_night %> total</strong></p>
-                  <p><%= booking.user.email %></p>
-                </div>
+            <div class="card-puppy-home">
+              <div class="card-puppy">
+                <%= cl_image_tag booking.puppy.photos.first.key %>
               </div>
-              <%= link_to 'Accept', accept_booking_path(booking), method: :patch, class: "btn3 btn-flat ms-3 mb-3" %>
-              <%= link_to 'Decline', decline_booking_path(booking), method: :patch, class: "btn3 btn-flat ms-3 mb-3" %>
+              <div class="p-4">
+                <div class="card-puppy-infos">
+                  <div>
+                    <p class="breed"><%= booking.puppy.breed %></p>
+                    <h2><%= booking.puppy.name %></h2>
+                    <p class="text-center"><%= booking.start_date.strftime("%b %d, %Y") %> - <%= booking.end_date.strftime("%b %d, %Y") %></p>
+                    <p class="card-puppy-pricing"><strong>Total booking value $<%= booking.total_cost_per_night %></strong></p>
+                    <p>Requestor email: <%= booking.user.email %></p>
+                    <i class="fas fa-pen-square me-3"></i>
+                    <i class="far fa-trash-alt"></i>
+                  </div>
+                </div>
+                <%= link_to 'Accept', accept_booking_path(booking), method: :patch, class: "btn btn-primary" %>
+                <%= link_to 'Decline', decline_booking_path(booking), method: :patch, class: "btn btn-primary" %>
+              </div>
             </div>
           <% end %>
         <% end %>

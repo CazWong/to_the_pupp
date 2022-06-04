@@ -36,7 +36,9 @@
         <p class="description"><%= @puppy.description %></p>
         <p class="address"><%= @puppy.address %></p>
       </div>
-      <%= link_to 'Book', new_puppy_booking_path(@puppy.id), class:"btn btn-primary w-50 " %>
+      <br>
+      <br>
+      <%= link_to 'Book this puppy', new_puppy_booking_path(@puppy.id), class:"btn btn-primary w-50 " %>
 
       <div class="options d-flex align-items-center">
         <% if policy(@puppy).edit? %>
